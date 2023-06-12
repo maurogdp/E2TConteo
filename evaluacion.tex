@@ -1,0 +1,940 @@
+\documentclass[11pt, letterpaper]{book}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{subfig}
+\usepackage{venndiagram}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{slashbox}
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,bbox}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{comment}
+\tikzset{%
+  show curve controls/.style={
+    postaction={
+      decoration={
+        show path construction,
+        curveto code={
+          \draw [blue] 
+            (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
+            (\tikzinputsegmentlast) -- (\tikzinputsegmentsupportb);
+          \fill [red, opacity=0.5] 
+            (\tikzinputsegmentsupporta) circle [radius=.5ex]
+            (\tikzinputsegmentsupportb) circle [radius=.5ex];
+        }
+      },
+      decorate
+}}}
+\end{comment}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{babel,arrows.meta,decorations.pathmorphing, backgrounds,positioning,fit,petri, shapes, shadows}
+
+\usepackage{tikz,color}
+\usepackage{pgf-pie}
+\usepackage{pgfplots} 
+
+\theoremstyle{plain}% default
+\newtheorem{teo}{Teorema}[section]
+\newtheorem{lem}[teo]{Lema}
+\newtheorem{prop}[teo]{Proposición}
+\newtheorem*{cor}{Corolario}
+\newmdtheoremenv{defi}{Definición}[section]
+\newtheorem{conj}{Conjetura}[section]
+\newtheorem{propi}{Propiedad}[section]
+
+\theoremstyle{definition}
+\newtheorem{ejer}{\textit{Ejercicio}}[section]
+\newtheorem{ejem}{\textit{Ejemplo}}[section]
+\newtheorem*{sol}{Solución}
+
+\theoremstyle{remark}
+\newtheorem{obs}{Observación}[section]
+\newtheorem*{nota}{Nota}
+\newtheorem{caso}{Caso}
+\newtheorem*{tips}{Tips}
+
+
+
+
+\newcommand{\paso}[1]{\hspace{1cm}\linebreak\hspace{1cm}\textit{#1 paso. }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newenvironment{myminipage}[1]%
+    {\let\@parboxrestore\relax\begin{minipage}{#1}}%
+    {\end{minipage}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{conserva}
+
+\newcounter{question}
+\newif\ifinchoices
+\inchoicesfalse
+\newenvironment{questions}{%
+  \list{\thequestion.\hspace{0.6cm}}%
+  {%
+    \usecounter{question}%
+    \def\question{\inchoicesfalse\item}%
+    \settowidth{\leftmargin}{10.\hskip\labelsep}%
+    \labelwidth\leftmargin\advance\labelwidth-\labelsep
+  }%
+}
+{%
+  \endlist
+}%
+
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice)}
+\def\choice{%
+  \ifinchoices
+    % Do nothing
+  \else
+    \startchoices
+  \fi
+  \refstepcounter{choice}%
+  %\ifnum\value{choice}>0\relax
+  %\penalty -50\hskip 1em plus 1em\relax
+  %\fi
+  \ifnum\value{choice}>1{\vspace{-0.2cm}}
+  
+  \fi
+  \choicelabel
+  \nobreak
+  \enskip
+}% choice
+\def\CorrectChoice{%
+  \choice
+  \addanswer{\thequestion}{\thechoice}%
+}
+\let\correctchoice\CorrectChoice
+
+\newcommand{\startchoices}{%
+  \inchoicestrue
+  \setcounter{choice}{0}%
+  \par % Uncomment this to have choices always start a new line
+  % If we're continuing the paragraph containing the question,
+  % then leave a bit of space before the first choice:
+  \ifvmode\else\enskip\fi
+}%
+
+\newbox\allanswers
+\setbox\allanswers=\hbox{}
+\newcommand{\addanswer}[2]{%
+  \global\setbox\allanswers=\hbox{\unhbox\allanswers #1.~#2\quad}%
+}
+\newcommand{\showanswers}{%
+  \vfill
+  \begin{center}
+    Alternativas correctas
+  \end{center}
+  \noindent\unhbox\allanswers
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+\author{Mauro Díaz}
+\title{Apuntes\\Probabilidad y estadística descriptiva e inferencial}
+
+\begin{document}
+\pgfplotsset{compat=1.18}
+
+\begin{questions}
+
+
+	\question En una fila de 7 sillas se sientan cuatro mujeres y tres hombres, ¿de cuántas maneras se pueden sentar ordenadamente, si las mujeres deben estar juntas y	los hombres también?
+	\choice $2$\\
+	\choice $4\cdot 3$\\
+	\choice $3!\cdot 4!\cdot 2$\\
+	\correctchoice $3!\cdot 4!$\\
+	\choice $4\cdot 3\cdot 2$
+
+	\question Si en una tienda de ropa, se deben escoger dos trajes de seis trajes diferentes, ¿de cuántas maneras distintas se puede hacer esta selección?
+
+	\choice $1$\\
+	\choice $15$\\
+	\correctchoice $6$\\
+	\choice $12$\\
+	\choice $3$
+
+	\question En estadística una muestra de la población es\\
+
+	\choice más de la mitad de la población.\\
+	\choice una parte que considere a los datos extremos.\\
+	\choice una parte por sobre el $75\%$ de la población.\\
+	\choice una parte proporcional de la población.\\
+	\correctchoice una parte representativa y aleatoria.\\
+
+	\newpage
+	\question En la tabla adjunta, se observa la cantidad de títulos profesionales obtenidos por los alumnos de Geología de la Universidad ``UCLA''. ¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]La cantidad de alumnos titulados en el año 1980 es superior que los titulados en el año 1975.
+		\item[II)]Hasta el año 1985 se titularon 60 estudiantes.
+		\item[III)]En los años 1985 y 1990 se titularon la misma cantidad de alumnos.
+	\end{itemize}
+
+	\begin{multicols}{2}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo I y II\\
+		\choice Solo II y III\\
+		\choice I, II y III\\
+		\columnbreak
+
+		\begin{center}
+			\begin{tabular}{|c|c|c|}\hline
+				\textbf{Año} & \textbf{Hombres} & \textbf{Mujeres} \\ \hline
+				1975         & 8                & 9                \\ \hline
+				1980         & 12               & 8                \\ \hline
+				1985         & 10               & 13               \\ \hline
+				1990         & 18               & 5                \\ \hline
+			\end{tabular}
+		\end{center}
+
+	\end{multicols}
+	\question En el centro comercial ``Santo Diablo'', se venden diariamente 150 pares de zapatos, de los cuales el $20\%$ se cancela con cheque, el $30\%$ con tarjeta de crédito y el resto en efectivo, ¿cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]La frecuencia absoluta de la compra en efectivo, corresponde a 75 pares de zapatos.
+		\item[II)]La suma de las frecuencias de los zapatos cancelados con cheques y efectivo, corresponde a 105 pares de zapatos.
+		\item[III)]La frecuencia absoluta de pago en cheques corresponde a 55 pares de zapatos.
+	\end{itemize}
+	\choice Solo I\\
+	\choice Solo II\\
+	\choice Solo I y II\\
+	\choice Solo II y III\\
+	\choice I, II y III
+
+
+	\question Se lanza 40 veces un dado y el número 2 sale 8 veces, entonces la frecuencia relativa del 2 es\\
+
+	\choice $\frac{1}{6}$\\
+	\choice $0{,}2$\\
+	\choice $0{,}25$\\
+	\choice $0{,}05$\\
+	\choice $0{,}5$\\
+
+	\question Las notas obtenidas por un curso en un examen de matemática fueron, 1 – 5 – 3 – 4 – 3 – 7 – 2 – 6 – 5 – 4 – 3 – 2 – 3 – 5 – 4 - 3 – 6 – 5 – 4 – 4 – 6 – 7 – 5 – 4 – 6. Al completar la distribución de frecuencias de los datos de la tabla adjunta, ¿cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item[I)]A $+$ B $=$ 22
+			\item[II)]F $+$ E $-$ D $=$ 25
+			\item[III)]C es múltiplo de 8
+		\end{itemize}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo III\\
+		\choice Solo I y II\\
+		\choice I, II y III
+		\columnbreak
+
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}\hline
+				$x$ & f & fac & fr$\%$ & fr$\%$ac \\ \hline
+				1   &   &     &        &          \\ \hline
+				2   & A &     &        &          \\ \hline
+				3   &   &     & B$\%$  &          \\ \hline
+				4   & D &     &        & C$\%$    \\ \hline
+				5   &   &     &        &          \\ \hline
+				6   &   & E   &        &          \\ \hline
+				7   &   &     & F$\%$  &          \\ \hline
+			\end{tabular}
+		\end{center}
+
+	\end{multicols}
+
+	\question La siguiente tabla estadística se refiere a las edades de personas que asisten a clases de Yoga. ¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s) con respecto a ella?
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item[I)]13 personas tienen menos de 20 años.
+			\item[II)]12 personas tienen 25 años
+			\item[III)]El $50\%$ de estas personas tienen a lo menos 25 años.
+		\end{itemize}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo III\\
+		\choice Solo I y II\\
+		\choice Solo I y III\\
+		\columnbreak
+
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline
+				\textbf{Edad} & \textbf{frecuencia} \\ \hline
+				$[10,15[$     & 5                   \\ \hline
+				$[15,20[$     & 8                   \\ \hline
+				$[20,25[$     & 12                  \\ \hline
+				$[25,30[$     & 15                  \\ \hline
+				$[30,35[$     & 10                  \\ \hline
+			\end{tabular}
+		\end{center}
+
+	\end{multicols}
+
+
+	\question Considerando los primeros 10 números compuestos. ¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]La media aritmética es $11.2$.
+		\item[II)]El promedio de los números múltiplos de 4 es 10.
+		\item[III)]En el conjunto de números no hay divisores de 8.
+	\end{itemize}
+	\choice Solo I\\
+	\choice Solo III\\
+	\choice Solo I y II\\
+	\choice Solo I y III\\
+	\choice Solo II y III
+
+	\question Un alumno obtiene 800 puntos de NEM y 850 puntos de ranking que corresponden a un $20\%$ en cada caso y en las pruebas de: Lenguaje 730 puntos, Matemática 760 puntos y Ciencias 820 puntos; con una ponderación respectiva de $10\%$, $30\%$ y $20\%$. ¿Cuál es su puntaje de postulación?\\
+
+	\choice 792\\
+	\choice 795\\
+	\choice 785\\
+	\choice 782\\
+	\choice 775\\
+
+
+	\question Se encuesta a los habitantes de un edificio respecto al número de personas que habitan cada departamento y los resultados se indican en la tabla adjunta. Entonces, ¿cuál de las siguientes afirmaciones es la FALSA?
+	\begin{multicols}{2}
+		\choice La moda es 4.\\
+		\choice Se encuestaron 50 familias.\\
+		\choice El promedio de habitantes por departamento es $3.18$.\\
+		\choice La distribución de frecuencias es bimodal.\\
+		\choice En el $44\%$ de los departamentos viven más de 3 personas.\\
+		\columnbreak
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline
+				\textbf{\begin{tabular}[c]{@{}c@{}}Personas por \\ departamento\end{tabular}} & \textbf{f} \\ \hline
+				1                                                                             & 3          \\ \hline
+				2                                                                             & 14         \\ \hline
+				3                                                                             & 11         \\ \hline
+				4                                                                             & 15         \\ \hline
+				5                                                                             & 7          \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{multicols}
+
+	\newpage
+	\question Con respecto a la tabla de frecuencia por intervalos adjunta, ¿cuáles de las siguientes afirmaciones son verdaderas?
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\textbf{Intervalo} & \textbf{Frecuencia} \\ \hline
+			$[0 - 10[$         & 5                   \\ \hline
+			$[10 - 20[$        & 6                   \\ \hline
+			$[20 - 30[$        & 4                   \\ \hline
+			$[30 - 40[$        & 5                   \\ \hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item[I)]Al intervalo modal le corresponde una marca de clase 15.
+		\item[II)]El valor estimado para la moda correspondiente es $M_o=\frac{40}{3}$.
+		\item[III)]La media aritmética de la muestra es $19.5$.
+	\end{itemize}
+	\choice Solo I y II\\
+	\choice Solo I y III\\
+	\choice Solo II y III\\
+	\choice I, II y III\\
+	\choice Ninguna de ellas.
+
+
+	\question ¿Cuál de las siguientes opciones es \textbf{FALSA}?\\
+
+	\choice Una desviación estándar pequeña significa que los datos están concentrados muy cerca de la media aritmética.\\
+	\choice Una desviación estándar grande indica poca confianza en la media aritmética.\\
+	\choice La desviación estándar puede ser cualquier número real no negativo.\\
+	\choice Dos muestras con igual número de datos y con la misma media aritmética, tienen desviaciones estándar iguales.\\
+	\choice La desviación estándar siempre se mide en las mismas unidades que los datos.\\
+
+	\question El número de hijos de 6 familias encuestadas son 3, 2, 3, 4, 2 y 1. ¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s) si al escribir los datos en lugar de un 4 ingresaron un 1?
+	\begin{itemize}
+		\item[I)]El promedio de hijos por familia es 2,5.
+		\item[II)]La desviación estándar de los datos es $\frac{7}{6}$.
+		\item[III)]El rango de los datos es 3.
+	\end{itemize}
+	\choice Solo I\\
+	\choice Solo I y II\\
+	\choice Solo I y III\\
+	\choice Solo II y III\\
+	\choice Ninguna de ellas.\\
+
+
+	\question El gráfico circular de la figura adjunta muestra las preferencias de 30 alumnos en actividades deportivas. ¿Cuál(es) de las siguientes afirmaciones es (son) correcta(s)?
+	\begin{itemize}
+		\item[I)]La frecuencia relativa porcentual del grupo de fútbol es de $40\%$.
+		\item[II)]La frecuencia relativa porcentual del grupo de básquetbol es de $30\%$.
+		\item[III)]La mitad del grupo no prefirió fútbol ni tenis.
+	\end{itemize}
+	\begin{minipage}{.3\linewidth}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo I y II\\
+		\choice Solo II y III\\
+		\choice I, II y III\\
+	\end{minipage}
+	\begin{minipage}{.7\linewidth}
+		\begin{center}
+			\begin{tikzpicture}
+				\pie[text=inside,radius=3, color={white}, sum=auto]{12/Fútbol, 3/Tenis, 9/Básquetbol, 6/Atletismo}
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}
+
+	\newpage
+	\question La tabla adjunta muestra la distribución de los puntajes obtenidos por los alumnos de un curso en una prueba de matemática. ¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]El total de alumnos que rindió la prueba es 40.
+		\item[II)]La mediana se encuentra en el intervalo $[20 - 29]$.
+		\item[III)]El intervalo modal (o clase modal) es el intervalo $[30 - 39]$.
+	\end{itemize}
+
+	\begin{minipage}{.3\linewidth}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo III\\
+		\choice Solo I y III\\
+		\choice I, II y III\\
+	\end{minipage}
+	\begin{minipage}{.7\linewidth}
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline \xrowht{13pt}
+				\textbf{\begin{tabular}{c}Intervalos\\de puntaje\end{tabular}} & \textbf{Frecuencia} \\ \hline
+				$[10-19]$                                                      & 6                   \\ \hline
+				$[20-29]$                                                      & 8                   \\ \hline
+				$[30-39]$                                                      & 12                  \\ \hline
+				$[40-49]$                                                      & 5                   \\ \hline
+				$[50-59]$                                                      & 9                   \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{minipage}
+
+	\question Una misma prueba se aplica a dos cursos paralelos. En uno de ellos, con 20 estudiantes, la nota promedio fue 6 y, en el otro, con 30 estudiantes, la nota promedio fue 5. Entonces, la nota promedio correspondiente al total de alumnos de ambos cursos es\\
+
+	\choice $5.7$\\
+	\choice $5.6$\\
+	\choice $5.5$\\
+	\choice $5.4$\\
+	\choice $5.3$\\
+
+	\question Se ha lanzado un dado 100 veces y se obtuvo la siguiente tabla:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+			\textbf{Caras}      & 1  & 2  & 3  & 4  & 5  & 6  \\ \hline
+			\textbf{Frecuencia} & 13 & 15 & 17 & 16 & 20 & 19 \\ \hline
+		\end{tabular}
+	\end{center}
+
+	¿Cuál(es) de las siguientes afirmaciones es (son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]El $50\%$ de las veces se obtuvo un número par.
+		\item[II)]El $30\%$ de las veces resultó 1 o 3.
+		\item[III)]El $20\%$ de las veces salió el número 5.
+	\end{itemize}
+
+	\choice Solo III\\
+	\choice Solo I y II\\
+	\choice Solo I y III\\
+	\choice Solo II y III\\
+	\choice I, II y III\\
+
+	\newpage
+
+	\question Sea el conjunto A formado por elementos $a_1, a_2, a_3, a_4, a_5 y a_6$, con desviación estándar $\sigma$ y varianza $\sigma ^2$. ¿Cuál de las siguientes afirmaciones es verdadera?\\
+	\choice $\sigma$ y $\sigma ^2$ nunca son iguales.\\
+	\choice $\sigma ^2$ nunca será cero.\\
+	\choice Siempre $\sigma ^2>0$.\\
+	\choice Si los elementos de A son impares consecutivos, entonces $\sigma =1$.\\
+	\choice Si los elementos de A son números positivos distintos entre sí, entonces $\sigma$ es mayor que 0.\\
+
+
+
+	\question El gráfico adjunto muestra el registro de las masas de los sacos guardados en una bodega, de manera que todos los intervalos son de la forma $[a,b[$, excepto el último que es de la forma $[c,d]$. Según la información del gráfico, es \textbf{FALSO} afirmar que:
+
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel=Kilos,
+					ylabel=Frecuencia,
+					ytick  ={30,35,45,50},
+					yticklabels={30,35,45,50},
+					xmin = 0, xmax = 28,
+					ymin=0, ymax=55,
+					minor y tick num = 0,
+					area style]
+				\addplot+[ybar interval, draw=black,fill=gray!30]
+				plot coordinates { (0, 35) (5, 45)
+						(10, 50) (15, 35) (20, 30) (25, 0)};
+
+				\addplot[color = black, dashed, thick] coordinates {(5, 45) (0, 45)};
+				\addplot[color = black, dashed, thick] coordinates {(20, 30) (0, 30)};
+				\addplot[color = black, dashed, thick] coordinates {(15, 35) (5, 35)};
+				\addplot[color = black, dashed, thick] coordinates {(10, 50) (0, 50)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\choice	Menos del $25\%$ de los sacos se encuentra en el intervalo $[5,10[$.\\
+	\choice 65 sacos tiene una masa mayor o igual a 15 kilos.\\
+	\choice Hay 20 sacos más en el tercer intervalo que en el quinto intervalo.\\
+	\choice Hay 160 sacos guardados en la bodega.\\
+	\choice 35 sacos tienen una masa menor a 5 kilos.
+
+	\newpage
+
+
+
+	\question El histograma de la figura 15 muestra la distribución de las edades de un grupo de personas, en donde no se han indicado las edades de ellas. Se puede determinar la media aritmética de las edades dadas en el gráfico, si se conoce:
+	\begin{itemize}
+		\item[(1)]El valor de la mediana de la distribución.
+		\item[(2)]La suma de todas las marcas de clases de los intervalos de la distribución.
+	\end{itemize}
+	\begin{minipage}{.5\linewidth}
+		\choice (1) Por si sola\\
+		\choice (2) Por si sola\\
+		\choice Ambas juntas, (1) y (2)\\
+		\choice Cada una por si sola, (1) y (2)\\
+		\choice Se requiere información adicional\\
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+						scale =0.8,
+						xlabel=Edades,
+						ylabel=Frecuencia,
+						ytick  ={15,25,30,35},
+						yticklabels={15,25,30,35},
+						xmin = 15, xmax = 65,
+						ymin=0, ymax=39,
+						minor y tick num = 0,
+						xtick={25,35,45,55},
+						xticklabels={},
+						area style]
+					\addplot+[ybar interval, draw=black,fill=gray!30]
+					plot coordinates { (20, 15) (30, 25) (40, 35) (50, 30) (60, 0)};
+
+					\addplot[color = black, dashed, thick] coordinates {(20, 15) (0, 15)};
+					\addplot[color = black, dashed, thick] coordinates {(30, 25) (0, 25)};
+					\addplot[color = black, dashed, thick] coordinates {(40, 35) (0, 35)};
+					\addplot[color = black, dashed, thick] coordinates {(50, 30) (0, 30)};
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}
+
+	\newpage
+
+
+
+	\question De 50 controles acumulativos, Juan lleva promedio $6.3$. Si le dan la posibilidad de borrar las tres peores pruebas, que son: $3.1$; $2.7$ y $3.7$; entonces, su nuevo promedio será:\\
+
+	\choice $6.5$\\
+	\choice $6.4$\\
+	\choice $6.3$\\
+	\choice $6.2$\\
+	\choice No se puede determinar.
+
+	\question Si las notas de Esteban en una asignatura son: 3, 4, 6, 3, 5, 5, 6, 3, 4 y de estas notas se cambia un 6 por un 7. ¿Cuál(es) de las siguientes medidas de tendencia central cambia(n)?
+	\begin{itemize}
+		\item[I)]La moda
+		\item[II)]La mediana
+		\item[III)]La media aritmética
+	\end{itemize}
+	\choice Solo II\\
+	\choice Solo III\\
+	\choice Solo I y III\\
+	\choice Solo II y III\\
+	\choice Ninguna
+
+	\question La siguiente tabla muestra los valores de una variable $X$ y sus respectivas frecuencias. ¿Cuál es el valor de la mediana?\\
+
+	\begin{minipage}{0.3\linewidth}
+		\choice $5.5$\\
+		\choice $6$\\
+		\choice $6.5$\\
+		\choice $7$\\
+		\choice $7.5$
+	\end{minipage}
+	\begin{minipage}{0.7\linewidth}
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline
+				\textbf{$X$} & \textbf{Frecuencia} \\ \hline
+				4            & 4                   \\ \hline
+				5            & 8                   \\ \hline
+				6            & 10                  \\ \hline
+				7            & 20                  \\ \hline
+				8            & 8                   \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{minipage}
+
+	\newpage
+
+	\question La tabla adjunta muestra algunos datos que corresponden a una encuesta sobre el porcentaje de satisfacción por un producto, que manifestó el total de personas encuestadas. ¿Cuál de las siguientes afirmaciones es \textbf{FALSA}?
+	\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			\textbf{Porcentajes} & \textbf{Frecuencia} & \textbf{Frecuencia acumulada} \\ \hline
+			$[0,60[$             & 0                   &                               \\ \hline
+			$[60,65[$            & 5                   & 5                             \\ \hline
+			$[65,70[$            &                     &                               \\ \hline
+			$[70,75[$            & 8                   & 18                            \\ \hline
+			$[75,80[$            & 7                   &                               \\ \hline
+			$[80,85[$            &                     & 46                            \\ \hline
+			$[85,90[$            & 4                   &                               \\ \hline
+			$[90,100[$           & 0                   &                               \\ \hline
+		\end{tabular}
+	\end{center}
+
+	\choice El intervalo modal es $[80,85[$.\\
+	\choice 50 personas contestaron la encuesta.\\
+	\choice El $50\%$ de los encuestados tiene menos de un $80\%$ de satisfacción por el producto.\\
+	\choice El $10\%$ de los encuestados tiene menos de un $70\%$ de satisfacción por el producto.\\
+	\choice Ninguna de las personas encuestadas tiene un $100\%$ de satisfacción por el producto.
+
+	\newpage
+
+	\question Al observar los grupos de datos P y Q de la tabla adjunta, se puede deducir que:
+
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+			\textbf{P} & 2 & 4 & 6 & 6 & 10 & 12 \\ \hline
+			\textbf{Q} & 2 & 4 & 6 & 6 & 10 & 11 \\ \hline
+		\end{tabular}
+	\end{center}
+
+	\choice Las modas y medias aritméticas de P y Q son iguales.\\
+	\choice Las medias aritméticas y las medianas de P y Q son iguales.\\
+	\choice La media aritmética de P es menor que la de Q.\\
+	\choice La mediana es la misma en P y Q.\\
+	\choice La moda y mediana de P y Q son distintas.
+
+	\newpage
+
+	\question De acuerdo a la información dada por la tabla de distribución de frecuencias de la figura, ¿cuál(es) de las siguientes afirmaciones es(son) verdadera(s)?
+	\begin{itemize}
+		\item[I)]Para algún valor de $p$, el promedio puede ser 6.
+		\item[II)]Para cualquier valor positivo posible de $p$ menor que 7, la mediana es 5
+		\item[II)]$a= 0.2$ solo si $p = 7$
+	\end{itemize}
+
+	\begin{minipage}{0.3\linewidth}
+		\choice Solo I\\
+		\choice Solo II\\
+		\choice Solo I y II\\
+		\choice Solo II y III\\
+		\choice I, II y III
+
+	\end{minipage}
+	\begin{minipage}{0.7\linewidth}
+		\begin{center}
+			\begin{tabular}{|c|c|c|}\hline
+				\textbf{$x$} & \textbf{\begin{tabular}{c}Frecuencia\\Absoluta	\end{tabular}} & \textbf{\begin{tabular}{c}Frecuencia\\Relativa	\end{tabular}} \\ \hline
+				4            & 6                                                             &                                                               \\ \hline
+				5            & 4                                                             & $a$                                                           \\ \hline
+				6            & $p$                                                           &                                                               \\ \hline
+				7            & 3                                                             &                                                               \\ \hline
+			\end{tabular}
+		\end{center}
+
+	\end{minipage}
+
+	\question El gráfico adjunto muestra la distribución de frecuencias de una variable discreta $X$. En esta distribución es posible calcular la media aritmética de $X$, si:\\
+
+	\begin{minipage}{0.4\linewidth}
+		\begin{itemize}
+			\item[(1)]$x_1=3$; $x_2=4$; $x_3=5$; $x_4=6$
+			\item[(2)]$4x_1+3x_2+x_3+2x_4=41$
+		\end{itemize}
+
+		\choice (1) Por si sola\\
+		\choice (2) Por si sola\\
+		\choice Ambas juntas, (1) y (2)\\
+		\choice Cada una por si sola, (1) y (2)\\
+		\choice Se requiere información adicional
+	\end{minipage}
+	\begin{minipage}{0.6\linewidth}
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+						ybar,
+						scale =0.8,
+						xlabel=Datos,
+						ylabel=Frecuencia,
+						ytick  ={1,2,3,4},
+						yticklabels={1,2,3,4},
+						ymin=0, ymax=5,
+						minor y tick num = 0,
+						symbolic x coords={$x_1$, $x_2$, $x_3$, $x_4$},
+						xtick=data,
+						area style]
+					\addplot+[draw=black,fill=gray!30]
+					plot coordinates { ($x_1$, 4) ($x_2$, 3) ($x_3$, 1) ($x_4$, 2)};
+
+					\path (axis cs:{[normalized]1},1) coordinate (aux);
+
+					\draw[black,sharp plot,dashed] (current axis.west|-aux) -- (current axis.east|-aux);
+
+					\path (axis cs:{[normalized]1},2) coordinate (aux2);
+
+					\draw[black,sharp plot,dashed] (current axis.west|-aux2) -- (current axis.east|-aux2);
+
+					\path (axis cs:{[normalized]1},3) coordinate (aux3);
+
+					\draw[black,sharp plot,dashed] (current axis.west|-aux3) -- (current axis.east|-aux3);
+
+					\path (axis cs:{[normalized]1},4) coordinate (aux4);
+
+					\draw[black,sharp plot,dashed] (current axis.west|-aux4) -- (current axis.east|-aux4);
+
+
+
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}
+
+
+
+	\newpage
+
+	\question Si la tabla adjunta muestra intervalos de minutos diarios que un grupo de 80 personas habla por teléfono. ¿Cuál(es) de las siguientes afirmaciones es(son) verdaderas?
+	\begin{itemize}
+		\item[I)]El primer cuartil se encuentra en el mismo intervalo que el percentil 20.
+		\item[II)]La mediana se encuentra en el tercer intervalo.
+		\item[III)]El tercer intervalo se encuentra en el mismo intervalo que el percentil 75.
+	\end{itemize}
+
+	\begin{minipage}{0.3\linewidth}
+		\choice Solo I\\
+		\choice Solo III\\
+		\choice Solo I y III\\
+		\choice Solo II y III\\
+		\choice I, II y III
+	\end{minipage}
+	\begin{minipage}{0.7\linewidth}
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline
+				\textbf{Minutos} & \textbf{$N^o$ de personas} \\ \hline
+				$[0,10[$         & 25                         \\ \hline
+				$[10,20[$        & 23                         \\ \hline
+				$[20,30[$        & 15                         \\ \hline
+				$[30,40[$        & 10                         \\ \hline
+				$[40,50[$        & 7                          \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{minipage}
+
+
+	\question En un grupo de datos la mediana es $m$ y la media es $\overline{x}$. ¿Cuál de las siguientes afirmaciones es siempre verdadera?\\
+
+	\choice El precentil 80 es mayor que $\overline{x}$.\\
+	\choice El primer cuartil es $\frac{m}{2}$.\\
+	\choice El dato más repetido es $m$.\\
+	\choice El percentil 70 es mayor o igual que $m$.\\
+	\choice $m=\overline{x}$
+
+
+
+
+	\question La tabla adjunta representa un estudio estadístico acerca de la producción de las parcelas de una región, agrupándolas en intervalos dependiendo de las toneladas de hortalizas que producen por temporada.
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\textbf{Cosecha (ton)} & \textbf{$N^o$ de parcelas} \\ \hline
+			$1-10$                 & 5                          \\ \hline
+			$11-20$                & 6                          \\ \hline
+			$21-30$                & 11                         \\ \hline
+			$31-40$                & 20                         \\ \hline
+			$41-50$                & 17                         \\ \hline
+			$51-60$                & 21                         \\ \hline
+		\end{tabular}
+	\end{center}
+
+	De acuerdo con esta información. ¿Cuál(es) de la(s) siguiente(s) informaciones es(son) falsas?
+	\begin{itemize}
+		\item[I)]La mediana está en el intervalo $31 - 40$.
+		\item[II)]La moda está en el intervalo $51 - 60$.
+		\item[III)]El tercer cuartil se encuentra en el intervalo $51 - 60$.
+	\end{itemize}
+
+	\choice Solo I\\
+	\choice Solo II\\
+	\choice Solo I y II\\
+	\choice Solo I y III\\
+	\choice I, II y III
+
+
+	\question Debido a los malos resultados de la prueba de Matemática el profesor decide subir las notas en dos décimas. ¿Cuál de los siguientes estadígrafos no cambia?
+	\begin{itemize}
+		\item[I)]Media
+		\item[II)]Rango
+		\item[III)]Varianza
+	\end{itemize}
+
+	\choice Solo I\\
+	\choice Solo II\\
+	\choice Solo III\\
+	\choice Solo II y III\\
+	\choice I, II y III
+
+	\question En un supermercado todo los fines de semana los artículos están rebajados en un $10\%$, si se considera una muestra de 100 artículos, entonces ¿Cuál(es) de los siguientes estadísticos de la muestra también variarían en el mismo porcentaje?
+	\begin{itemize}
+		\item[I)]Media
+		\item[II)]Rango
+		\item[III)]Desviación estándar
+	\end{itemize}
+
+	\choice Solo I\\
+	\choice Solo II\\
+	\choice Solo III\\
+	\choice Solo I y III\\
+	\choice I, II y III
+
+	\question La desviación estándar de los datos $4a, 4b$ y $4c$ es $0.16$, entonces la desviación estándar de los datos $a, b$ y $c$ es igual a:\\
+
+	\choice $0.1$\\
+	\choice $0.04$\\
+	\choice $0.16$\\
+	\choice $0.64$\\
+	\choice $1$
+
+
+	\question Sean $a, b, c$ y $d$ números positivos con varianza $\sigma^2$ y media $\overline{x}$, entonces es FALSO afirmar que:\\
+
+	\choice Si $n>0$, entonces la varianza de $a+n,b+n,c+n$ y $d+n$ es $(\sigma^2+n)$.\\
+	\choice Si $a=b=c=d$, entonces $\sigma^2=0$.\\
+	\choice La varianza de $3a,3b,3c,3d$ es de $9\sigma^2$.\\
+	\choice Si $q>0$, entonces la media aritmética de $a+q,b+q,c+q,d+q$ es $(\overline{x}+q)$.\\
+	\choice La varianza y la desviación estándar pueden ser iguales.
+
+
+	\newpage
+
+
+	\question La varianza de los datos de la tabla es:\\
+
+	\begin{minipage}{0.3\linewidth}
+		\choice $0.5$\\
+		\choice $0.575$\\
+		\choice $1.11$\\
+		\choice $1.25$\\
+		\choice $1.438$
+	\end{minipage}
+	\begin{minipage}{0.7\linewidth}
+		\begin{center}
+			\begin{tabular}{|c|c|}\hline
+				\textbf{Dato} & \textbf{Frecuencia} \\ \hline
+				12            & 3                   \\ \hline
+				13            & 1                   \\ \hline
+				14            & 4                   \\ \hline
+				15            & 2                   \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{minipage}
+
+
+	\question Si todos los datos de una muestra se incrementan en 4 unidades, entonces la varianza:\\
+
+	\choice Se incrementa en 4 unidades.\\
+	\choice Se incrementa en 2 unidades.\\
+	\choice Queda igual.\\
+	\choice Se incrementa en un $20\%$.\\
+	\choice Se incrementa en un $50\%$.
+
+
+	\newpage
+
+	\question ¿Cuál es la correcta relación de las desviaciones estándar entre los datos de las tablas A y B?
+
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\multicolumn{2}{|c|}{\textbf{Tabla A}}  \\ \hline
+			\textbf{Variable} & \textbf{Frecuencia} \\ \hline
+			3                 & 3                   \\ \hline
+			5                 & 4                   \\ \hline
+			7                 & 2                   \\ \hline
+			\textbf{Total}    & 9                   \\ \hline
+		\end{tabular}
+		\hspace{1cm}
+		\begin{tabular}{|c|c|}\hline
+			\multicolumn{2}{|c|}{\textbf{Tabla B}}  \\ \hline
+			\textbf{Variable} & \textbf{Frecuencia} \\ \hline
+			555.553           & 3                   \\ \hline
+			555.555           & 4                   \\ \hline
+			555.557           & 2                   \\ \hline
+			\textbf{Total}    & 9                   \\ \hline
+		\end{tabular}
+	\end{center}
+
+	\choice $s_A=1{.}000\cdot s_B$\\
+	\choice $s_A=555{.}555\cdot s_B$\\
+	\choice $s_A<s_B$\\
+	\choice $s_B>s_A$\\
+	\choice $s_A=s_B$
+
+
+	\question  Si las edades en años, de una población de 8 niños son 2, 3, 5, 6, 8, 10, 11 y 19, entonces su desviación estándar, en años es:\\
+
+	\choice $\sqrt{26}$\\
+	\choice $\sqrt{13}$\\
+	\choice $\frac{\sqrt{13}}{2}$\\
+	\choice $\frac{\sqrt{26}}{2}$\\
+	\choice Ninguna de las anteriores
+
+	\newpage
+
+
+
+	\question Se puede determinar la mediana de una población de 100 datos si:
+	\begin{itemize}
+		\item[(1)]La media aritmética es 39.
+		\item[(2)]La varianza es 0.
+	\end{itemize}
+
+	\choice (1) por si sola\\
+	\choice (2) por si sola\\
+	\choice Ambas juntas, (1) y (2)\\
+	\choice Cada una por si sola, (1) y (2)\\
+	\choice Se requiere información adicional
+
+\end{questions}
+
+\end{document}
+
+
+
