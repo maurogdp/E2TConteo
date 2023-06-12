@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1686550174 "c:/Users/mauro/OneDrive/Escritorio/Programación/Evaluación 2 Técnicas de conteo/E2TConteo/evaluacion.tex" "evaluacion.pdf" "evaluacion" 1686550176 0
+["pdflatex"] 1686551057 "c:/Users/mauro/OneDrive/Escritorio/Programación/Evaluación 2 Técnicas de conteo/E2TConteo/evaluacion.tex" "evaluacion.pdf" "evaluacion" 1686551058 0
   "C:/Users/mauro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1686546595 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/mauro/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcbx1095.pk" 1686550712 13580 8a48d9e1d8a6d14aaa0d76049e99baeb ""
   "C:/Users/mauro/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1686546466 23185515 73b09060458c085187aa088d92a89606 ""
+  "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcbx1095.tfm" 993062478 1476 2703c7670cbf6ffef3763103a3aa859f ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233948248 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233948248 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233948254 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -237,9 +239,9 @@
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1650051284 2245 c8a4088d07cffc2e5207730c738edd76 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1650051284 20785 71a3d72ab517959a6979c27e6176bec1 ""
-  "c:/Users/mauro/OneDrive/Escritorio/Programación/Evaluación 2 Técnicas de conteo/E2TConteo/evaluacion.tex" 1686550174 18023 86853bdd8c90c7aa899175f0b2450fa3 ""
-  "evaluacion.aux" 1686550175 266 c5aa909dfbbea926789c242e6683889f "pdflatex"
-  "evaluacion.tex" 1686550174 18023 86853bdd8c90c7aa899175f0b2450fa3 ""
+  "c:/Users/mauro/OneDrive/Escritorio/Programación/Evaluación 2 Técnicas de conteo/E2TConteo/evaluacion.tex" 1686551056 18224 871c2333b274ca53db86f506286daf4b ""
+  "evaluacion.aux" 1686551058 266 c5aa909dfbbea926789c242e6683889f "pdflatex"
+  "evaluacion.tex" 1686551056 18224 871c2333b274ca53db86f506286daf4b ""
   (generated)
   "evaluacion.aux"
   "evaluacion.log"
