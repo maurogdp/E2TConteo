@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1686540725 "c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/prueba 2 tecnicas de conteo/evaluacion.tex" "evaluacion.pdf" "evaluacion" 1686540734 0
+["pdflatex"] 1686543808 "c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/Prueba 2 Técnicas de conteo/evaluacion.tex" "evaluacion.pdf" "evaluacion" 1686543812 0
   "C:/Users/mauro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1686314279 84470 1b03f303430b1250744b51ca4bdbdd0b ""
   "C:/Users/mauro/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1678069373 10788009 229648a1e220401ea3b5dbeb18b60492 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233948248 1004 54797486969f23fa377b128694d548df ""
@@ -21,6 +21,7 @@
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136761453 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136761453 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
+  "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -237,9 +238,9 @@
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1650051284 2245 c8a4088d07cffc2e5207730c738edd76 ""
   "C:/Users/mauro/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1650051284 20785 71a3d72ab517959a6979c27e6176bec1 ""
-  "c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/prueba 2 tecnicas de conteo/evaluacion.tex" 1686540721 33201 0d3988ec35d0a68c4987b15b31611dbc ""
-  "evaluacion.aux" 1686540732 267 937849b2e24fa8d5f613eb31ae582108 "pdflatex"
-  "evaluacion.tex" 1686540721 33201 0d3988ec35d0a68c4987b15b31611dbc ""
+  "c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/Prueba 2 Técnicas de conteo/evaluacion.tex" 1686543802 36891 af1fcf73cc5283d1bbfe48623e977124 ""
+  "evaluacion.aux" 1686543811 267 ea42a153de38b9d43f6720c4191ab2c2 "pdflatex"
+  "evaluacion.tex" 1686543802 36891 af1fcf73cc5283d1bbfe48623e977124 ""
   (generated)
   "evaluacion.aux"
   "evaluacion.log"

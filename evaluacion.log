@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.6)  11 JUN 2023 23:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.6)  12 JUN 2023 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/prueba 2 tecnicas de conteo/evaluacion.tex"
-(c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/prueba 2 tecnicas de conteo/evaluacion.tex
+**"c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/Prueba 2 Técnicas de conteo/evaluacion.tex"
+(c:/Users/mauro/Desktop/Diferenciado de Probabilidad y estadística descriptiva e inferencial/Prueba 2 Técnicas de conteo/evaluacion.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (C:\Users\mauro\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
@@ -931,202 +931,192 @@ LaTeX Info: Redefining \% on input line 178.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 185.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 186.
 (C:\Users\mauro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 185.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 186.
  (C:\Users\mauro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+) [1{C:/Users/mauro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
-[1{C:/Users/mauro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
-
- []
-
-[2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 378--379
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
- []
-
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 405--419
-$[]$ $[]$ 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+Underfull \hbox (badness 10000) in paragraph at lines 516--517
 
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 428--447
-[]$[]$ $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
-
- []
-
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 532--533
-
- []
-
-
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 527--560
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 525--539
 $[]$ $[]$ 
  []
 
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
+
+ []
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 548--567
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 568--569
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
+
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 599--600
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+
+ []
+
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--586
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 647--680
+$[]$ $[]$ 
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 587--606
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
+
+ []
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 707--726
 []$[]$ $[]$ 
  []
 
-[11] [12] [13]
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 656--676
-[]$[]$ $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
-
- []
-
-Package pgfplots info on input line 705: Using 'lua backend=false' for axis: x coord trafo unsupported.
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 679--731
-[]$[]$ $[]$ 
- []
-
-[14]
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 743--762
+[12] [13] [14]
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 776--796
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 764--765
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
 
+ []
+
+Package pgfplots info on input line 825: Using 'lua backend=false' for axis: x coord trafo unsupported.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 799--851
+[]$[]$ $[]$ 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 863--882
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 837--838
+Underfull \hbox (badness 10000) in paragraph at lines 948--949
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 849--850
-
- []
-
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 851--869
-[]$[]$ $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 871--872
+Underfull \hbox (badness 10000) in paragraph at lines 957--958
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 911--912
+Underfull \hbox (badness 10000) in paragraph at lines 969--970
 
  []
 
-[19] [20] (evaluacion.aux
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 971--989
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 991--992
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
+
+ []
+
+[20] [21] (evaluacion.aux
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
 ) ) 
 Here is how much of TeX's memory you used:
  34188 strings out of 475385
- 846678 string characters out of 2776908
- 1307196 words of memory out of 3000000
+ 846685 string characters out of 2776908
+ 1308220 words of memory out of 3000000
  54947 multiletter control sequences out of 15000+600000
  474568 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,133p,854b,2267s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on evaluacion.pdf (20 pages, 134805 bytes).
+ 99i,14n,133p,855b,2267s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mauro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on evaluacion.pdf (21 pages, 144929 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
